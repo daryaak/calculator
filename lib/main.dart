@@ -18,10 +18,10 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
 
   var userInput = '';
   var calcResult = '0';
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                 alignment: Alignment.centerRight,
                 child: Text(
                   userInput,
-                  style: TextStyle(
+                  style: const TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 48,
                   fontFamily: 'Inter',
@@ -61,9 +61,8 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(20),
                 alignment: Alignment.centerRight,
                 child: Text(
-                  // TODO:: CHANGE TO STR 
                   calcResult,
-                  style: TextStyle(
+                  style: const TextStyle(
                   color: Color.fromARGB(255, 150, 150, 150),
                   fontSize: 48,
                   fontFamily: 'Inter',
@@ -100,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                     '+/-', 
                     (){
                       setState(() {
-                        userInput = '-(' + userInput + ')';
+                        userInput = '-($userInput)';
                         getResult();
                       });
                     }),
@@ -115,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                           getResult();
                           } 
                           if(!checkOperator()){
-                            userInput = userInput.substring(0, userInput.length - 1) + '%';
+                            userInput = '${userInput.substring(0, userInput.length - 1)}%';
                           }else{
                               userInput += '%';
                           }
@@ -133,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                           getResult();
                           }
                           if(!checkOperator()){
-                            userInput = userInput.substring(0, userInput.length - 1) + '÷';
+                            userInput = '${userInput.substring(0, userInput.length - 1)}x';
                           }else{
                               userInput += '÷';
                           }
@@ -183,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                           getResult();
                           }
                           if(!checkOperator()){
-                            userInput = userInput.substring(0, userInput.length - 1) + 'x';
+                            userInput = '${userInput.substring(0, userInput.length - 1)}x';
                           }else{
                               userInput += 'x';
                           }
@@ -233,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                           getResult();
                           }
                           if(!checkOperator()){
-                            userInput = userInput.substring(0, userInput.length - 1) + '-';
+                            userInput = '${userInput.substring(0, userInput.length - 1)}-';
                           }else{
                               userInput += '-';
                           }
@@ -283,7 +282,7 @@ class _HomePageState extends State<HomePage> {
                           getResult();
                           }
                           if(!checkOperator()){
-                            userInput = userInput.substring(0, userInput.length - 1) + '+';
+                            userInput = '${userInput.substring(0, userInput.length - 1)}+';
                           }else{
                               userInput += '+';
                           }
@@ -359,18 +358,17 @@ class _HomePageState extends State<HomePage> {
 
 class CalcButton extends StatelessWidget{
 
-  var color;
-  var textColor;
-  String buttonText = '';
-  var buttonTapped;
-  var width;
+  final Color color;
+  final Color textColor;
+  final String buttonText;
+  final VoidCallback buttonTapped;
   
-  double getWidth(Color color){
+  double getWidth(){
     if(color == const Color.fromARGB(255, 102, 255, 127)){ return 166;}
     else{ return 73;}
   }
 
-  CalcButton(this.color,this.textColor,this.buttonText,this.buttonTapped);
+  const CalcButton(this.color,this.textColor,this.buttonText,this.buttonTapped);
 
   @override
   Widget build(BuildContext context) {
@@ -382,7 +380,7 @@ class CalcButton extends StatelessWidget{
         child: Container(
           color: color,
           height: 75,
-          width: getWidth(color),
+          width: getWidth(),
           child: Center(
             child: Text(
               buttonText,
