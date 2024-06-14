@@ -78,255 +78,331 @@ class HomePageState extends State<HomePage> {
           Expanded(
             flex:3,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                    CalcButton(
-                    redButton, 
-                    blackButton, 
-                    'C', 
-                    (){
-                      setState(() {
-                      userInput = '';
-                      calcResult = '0';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '+/-', 
-                    (){
-                      setState(() {
-                        userInput = '-($userInput)';
-                        getResult();
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    greenButton, 
-                    '%', 
-                    (){
-                      setState(() {
-                        if(userInput != ''){
-                          if(checkOperator()){
-                          getResult();
-                          } 
-                          if(!checkOperator()){
-                            userInput = '${userInput.substring(0, userInput.length - 1)}%';
-                          }else{
-                              userInput += '%';
-                          }
-                        }
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    greenButton, 
-                    '÷', 
-                    (){
-                      setState(() {
-                        if(userInput != ''){
-                          if(checkOperator()){
-                          getResult();
-                          }
-                          if(!checkOperator()){
-                            userInput = '${userInput.substring(0, userInput.length - 1)}x';
-                          }else{
-                              userInput += '÷';
-                          }
-                        }
-                      });
-                    }),
-                    ]
+                  const SizedBox(height: 19),
+                  Flexible(
+                    child: Row(
+                      children: [
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        redButton, 
+                        blackButton, 
+                        'C', 
+                        (){
+                          setState(() {
+                          userInput = '';
+                          calcResult = '0';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '+/-', 
+                        (){
+                          setState(() {
+                            userInput = '-($userInput)';
+                            getResult();
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        greenButton, 
+                        '%', 
+                        (){
+                          setState(() {
+                            if(userInput != ''){
+                              if(checkOperator()){
+                              getResult();
+                              } 
+                              if(!checkOperator()){
+                                userInput = '${userInput.substring(0, userInput.length - 1)}%';
+                              }else{
+                                  userInput += '%';
+                              }
+                            }
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        greenButton, 
+                        '÷', 
+                        (){
+                          setState(() {
+                            if(userInput != ''){
+                              if(checkOperator()){
+                              getResult();
+                              }
+                              if(!checkOperator()){
+                                userInput = '${userInput.substring(0, userInput.length - 1)}x';
+                              }else{
+                                  userInput += '÷';
+                              }
+                            }
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      ]
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '7', 
-                    (){
-                      setState(() {
-                        userInput += '7';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '8', 
-                    (){
-                      setState(() {
-                        userInput += '8';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '9', 
-                    (){
-                      setState(() {
-                        userInput += '9';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    greenButton, 
-                    'x', 
-                    (){
-                       setState(() {
-                        if(userInput != ''){
-                          if(checkOperator()){
-                          getResult();
-                          }
-                          if(!checkOperator()){
-                            userInput = '${userInput.substring(0, userInput.length - 1)}x';
-                          }else{
-                              userInput += 'x';
-                          }
-                        }
-                      });
-                    }),
-                    ]
+                  const SizedBox(height: 19),
+                  Flexible(
+                    child: Row(
+                      children: [
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '7', 
+                        (){
+                          setState(() {
+                            userInput += '7';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '8', 
+                        (){
+                          setState(() {
+                            userInput += '8';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '9', 
+                        (){
+                          setState(() {
+                            userInput += '9';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        greenButton, 
+                        'x', 
+                        (){
+                           setState(() {
+                            if(userInput != ''){
+                              if(checkOperator()){
+                              getResult();
+                              }
+                              if(!checkOperator()){
+                                userInput = '${userInput.substring(0, userInput.length - 1)}x';
+                              }else{
+                                  userInput += 'x';
+                              }
+                            }
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      ]
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '4', 
-                    (){
-                      setState(() {
-                        userInput += '4';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '5', 
-                    (){
-                      setState(() {
-                        userInput += '5';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '6', 
-                    (){
-                      setState(() {
-                        userInput += '6';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    greenButton, 
-                    '-', 
-                    (){
-                       setState(() {
-                        if(userInput != ''){
-                          if(checkOperator()){
-                          getResult();
-                          }
-                          if(!checkOperator()){
-                            userInput = '${userInput.substring(0, userInput.length - 1)}-';
-                          }else{
-                              userInput += '-';
-                          }
-                        }
-                      });
-                    }),
-                    ]
+                  const SizedBox(height: 19),
+                  Flexible(
+                    child: Row(
+                      children: [
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '4', 
+                        (){
+                          setState(() {
+                            userInput += '4';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '5', 
+                        (){
+                          setState(() {
+                            userInput += '5';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '6', 
+                        (){
+                          setState(() {
+                            userInput += '6';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        greenButton, 
+                        '-', 
+                        (){
+                           setState(() {
+                            if(userInput != ''){
+                              if(checkOperator()){
+                              getResult();
+                              }
+                              if(!checkOperator()){
+                                userInput = '${userInput.substring(0, userInput.length - 1)}-';
+                              }else{
+                                  userInput += '-';
+                              }
+                            }
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      ]
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '1', 
-                    (){
-                      setState(() {
-                        userInput += '1';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '2', 
-                    (){
-                      setState(() {
-                        userInput += '2';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '3', 
-                    (){
-                      setState(() {
-                        userInput += '3';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    greenButton, 
-                    '+', 
-                    (){
-                       setState(() {
-                        if(userInput != ''){
-                          if(checkOperator()){
-                          getResult();
-                          }
-                          if(!checkOperator()){
-                            userInput = '${userInput.substring(0, userInput.length - 1)}+';
-                          }else{
-                              userInput += '+';
-                          }
-                        }
-                      });
-                    }),
-                    ]
+                  const SizedBox(height: 19),
+                  Flexible(
+                    child: Row(
+                      children: [
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '1', 
+                        (){
+                          setState(() {
+                            userInput += '1';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '2', 
+                        (){
+                          setState(() {
+                            userInput += '2';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '3', 
+                        (){
+                          setState(() {
+                            userInput += '3';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        greenButton, 
+                        '+', 
+                        (){
+                           setState(() {
+                            if(userInput != ''){
+                              if(checkOperator()){
+                              getResult();
+                              }
+                              if(!checkOperator()){
+                                userInput = '${userInput.substring(0, userInput.length - 1)}+';
+                              }else{
+                                  userInput += '+';
+                              }
+                            }
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      ]
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '0', 
-                    (){
-                       setState(() {
-                        userInput += '0';
-                      });
-                    }),
-                    CalcButton(
-                    blackButton, 
-                    whiteButton, 
-                    '.', 
-                    (){
-                       setState(() {
-                        if(userInput != ''){
-                          if(checkOperator()&& !userInput.endsWith(')')){
-                            userInput += '.';
-                          }
-                        }
-                      });
-                    }),
-                    CalcButton(
-                    greenButton, 
-                    blackButton, 
-                    '=', 
-                    (){
-                      setState(() {
-                          getResult();
-                      });
-                    }),
-                    ]
-                  )
+                  const SizedBox(height: 19),
+                  Flexible(
+                    child: Row(
+                      children: [
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '0', 
+                        (){
+                           setState(() {
+                            userInput += '0';
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        child: CalcButton(
+                        blackButton, 
+                        whiteButton, 
+                        '.', 
+                        (){
+                           setState(() {
+                            if(userInput != ''){
+                              if(checkOperator()&& !userInput.endsWith(')')){
+                                userInput += '.';
+                              }
+                            }
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      Flexible(
+                        flex: 2,
+                        child: CalcButton(
+                        greenButton, 
+                        blackButton, 
+                        '=', 
+                        (){
+                          setState(() {
+                            if(!checkOperator()){
+                              userInput = userInput.substring(0,userInput.length-1);
+                            }
+                            getResult();
+                          });
+                        }),
+                      ),
+                      const SizedBox(width: 19),
+                      ]
+                    ),
+                  ),
+                  const SizedBox(height: 19),
                 ],
               )
           )  
@@ -341,9 +417,9 @@ class HomePageState extends State<HomePage> {
       }
     }
       return true;
-    }
+  }
 
-    void getResult() {
+  void getResult() {
     String finaluserinput = userInput;
     finaluserinput = userInput.replaceAll('x', '*');
     finaluserinput = finaluserinput.replaceAll('÷', '/');
@@ -363,11 +439,6 @@ class CalcButton extends StatelessWidget{
   final String buttonText;
   final VoidCallback buttonTapped;
   
-  double getWidth(){
-    if(color == const Color.fromARGB(255, 102, 255, 127)){ return 166;}
-    else{ return 73;}
-  }
-
   const CalcButton(this.color,this.textColor,this.buttonText,this.buttonTapped);
 
   @override
@@ -379,8 +450,6 @@ class CalcButton extends StatelessWidget{
         borderRadius: BorderRadius.circular(9),
         child: Container(
           color: color,
-          height: 75,
-          width: getWidth(),
           child: Center(
             child: Text(
               buttonText,
