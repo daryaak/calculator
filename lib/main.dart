@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:math_expressions/math_expressions.dart';
+import 'package:function_tree/function_tree.dart';
 
 void main() {
   runApp(MyApp());
@@ -423,13 +423,10 @@ class HomePageState extends State<HomePage> {
     String finaluserinput = userInput;
     finaluserinput = userInput.replaceAll('x', '*');
     finaluserinput = finaluserinput.replaceAll('÷', '/');
- 
-    Parser p = Parser();
-    Expression exp = p.parse(finaluserinput);
-    ContextModel cm = ContextModel();
-    double eval = exp.evaluate(EvaluationType.REAL, cm);
-    calcResult = eval.toString();
+
+    calcResult = finaluserinput.interpret().toString();
   }
+
 }
 
 class CalcButton extends StatelessWidget{
